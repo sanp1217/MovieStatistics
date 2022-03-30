@@ -11,4 +11,19 @@ int main() {
 	cin >> studentsSurveyed;
 
 	studentsArray = new int[studentsSurveyed];
+
+	cout << "\nNow enter the number of movies seen by each student." << endl;
+	//input for amount of movies seen by each student.
+	for (int i = 0; i < studentsSurveyed; i++) {
+		cout << "Movies seen by student " << i << ": ";
+		cin >> moviesSeen;
+
+		//input validation.
+		while (moviesSeen < 0) {
+			cout << "Invalid input. Try again: ";
+			cin >> moviesSeen;
+		}
+		*(studentsArray + i) = moviesSeen;
+	}
+
 }
