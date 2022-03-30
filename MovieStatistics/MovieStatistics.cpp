@@ -30,6 +30,22 @@ int main() {
 		}
 		*(studentsArray + i) = moviesSeen;
 	}
+
+	// To get the median, the array needs to be sorted.
+	sort(studentsArray, studentsArray + studentsSurveyed);
+
+	double average = calculateAverage(studentsArray, studentsSurveyed);
+	double median = findMedian(studentsArray, studentsSurveyed);
+	int mode = findMode(studentsArray, studentsSurveyed);
+
+	//Output of results.
+	cout << "\nResults from data" << endl;
+	cout << string(20, '*') << endl;
+
+	cout << "Number of students surveyed: " << studentsSurveyed << "\n"
+		<< "Average number of movies watched: " << average << "\n"
+		<< "Median: " << median << "\n"
+		<< "Mode: " << mode;
 }
 
 double calculateAverage(int* studentsArray, int size) {
@@ -66,8 +82,8 @@ int findMode(int* studentsArray, int size) {
 				count++;
 			}
 		}
-		//If the count of the numeber that just showed up is higher than the count of
-		//the mode then the count becomes the new modeCount and the mode is the number that was just looped.
+		//If the count of the number that was just looped is higher than the count of
+		//the mode number then the count becomes the new modeCount and the mode is the number that was just looped.
 		if (count > modeCount) {
 			modeCount = count;
 			mode = *(studentsArray + i);
