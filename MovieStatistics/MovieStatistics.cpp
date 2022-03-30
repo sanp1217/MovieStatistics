@@ -2,6 +2,9 @@
 #include <algorithm>
 using namespace std;
 
+//function prototypes
+double calculateAverage(int*, int);
+
 int main() {
 	int studentsSurveyed, moviesSeen;
 	int* studentsArray = nullptr;
@@ -25,5 +28,12 @@ int main() {
 		}
 		*(studentsArray + i) = moviesSeen;
 	}
+}
 
+double calculateAverage(int* studentsArray, int size) {
+	double sumOfScores = 0, average;
+	for (int i = 0; i < size; i++) {
+		sumOfScores += *(studentsArray + i);
+	}
+	return average = sumOfScores / size;
 }
