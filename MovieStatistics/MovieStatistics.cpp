@@ -4,6 +4,7 @@ using namespace std;
 
 //function prototypes
 double calculateAverage(int*, int);
+double findMedian(int*, int);
 
 int main() {
 	int studentsSurveyed, moviesSeen;
@@ -36,4 +37,15 @@ double calculateAverage(int* studentsArray, int size) {
 		sumOfScores += *(studentsArray + i);
 	}
 	return average = sumOfScores / size;
+}
+
+double findMedian(int* studentsArray, int size) {
+	//If the size of the array is odd, then the median will just be the middle element.
+	if (size % 2 != 0) {
+		return (double)studentsArray[size / 2];
+	}
+
+	//if the size of the array is even, then the median will be the average of the two
+	//middle elements.
+	return (double)(studentsArray[(size - 1) / 2] + studentsArray[(size / 2)]) / 2.0;
 }
